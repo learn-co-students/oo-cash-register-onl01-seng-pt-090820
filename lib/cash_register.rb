@@ -5,25 +5,25 @@ class CashRegister
   
     def initialize(discount = 0)
         self.discount = discount
-        @total = 0
-        @items = []
-        @transactions = []
+        self.total = 0
+        self.items = []
+        self.transactions = []
     end
 
     def add_item(item, price, quantity = 1)
-        @total += price*quantity
+        self.total += price*quantity
         quantity.times do 
             @items << item
         end
-        @transactions << price*quantity
+        self.transactions << price*quantity
     end
 
     def apply_discount
         if discount == 0
             "There is no discount to apply."
         else
-            @total -= (@total*(self.discount/100.0)).to_i
-            "After the discount, the total comes to $#{@total}."
+            self.total -= (self.total*(self.discount/100.0)).to_i
+            "After the discount, the total comes to $#{self.total}."
         end
     end
 
